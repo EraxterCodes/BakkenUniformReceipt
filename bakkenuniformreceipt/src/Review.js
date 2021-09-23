@@ -13,7 +13,7 @@ export default function ReviewForm() {
       </Typography>
       
       <Typography variant="h4" gutterBottom>
-        1 str. M Grøn RB Polo
+        2 str. L Grøn RB Polo
       </Typography>
       
     </React.Fragment>

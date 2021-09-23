@@ -16,6 +16,9 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import EmailForm from './EmailForm';
 import UniformForm from './UniformsForm';
 import Review from './Review';
+import * as emailjs from 'emailjs-com'
+import{ init } from 'emailjs-com';
+init("user_5X1e4mj64MdMbEzNraSrN");
 
 function Copyright() {
   return (
@@ -48,16 +51,36 @@ function getStepContent(step) {
 const theme = createTheme();
 
 export default function Checkout() {
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = React.useState(0); //Controll page number
+
+  /* Email states */
   const [firstName, setFirstName] = useState("");
   const [lastName,setLastName] = useState("");
   const [email,setEmail] = useState("");
+  
+  /* Polo states */
+  const [GreenPoloCount,setGreenPoloCount] = useState(0);
+  const [GreenPoloSize,setGreenPoloSize] = useState("");
+  const [BlackPoloCount,setBlackPoloCount] = useState(0);
+  const [BlackPoloSize,setBlackPoloSize] = useState("");
+  const [WhitePoloCount,setWhitePoloCount] = useState(0);
+  const [WhitePoloSize,setWhitePoloSize] = useState("");
 
-  useEffect(() => {
-    console.log(firstName)
-    console.log(lastName)
-    console.log(email)
-  },[firstName,lastName,email])
+
+  /* Cardigan states */
+  const [RedCardiganCount,setRedCardiganCount] = useState(0);
+  const [RedCardiganSize,setRedCardiganSize] = useState("");
+  const [BlueCardiganCount,setBlueCardiganCount] = useState(0);
+  const [BlueCardiganSize,setBlueCardiganSize] = useState("");
+
+  /* Sweatshirt states */
+  const [BlackSweatshirtCount,setBlackSweatshirtCount] = useState(0);
+  const [BlackSweatshirtSize,setBlackSweatshirtSize] = useState("");
+  const [GreenSweatshirtCount,setGreenSweatshirtCount] = useState(0);
+  const [GreenSweatshirtSize,setGreenSweatshirtSize] = useState("");
+
+  /* Other states */
+  const [OtherField,setOtherField] = useState("");
 
   const handleNext = () => {
     if (activeStep === 0) {
@@ -67,13 +90,84 @@ export default function Checkout() {
       setFirstName(firstnameBox.value)
       setLastName(lastnameBox.value)
       setEmail(emailBox.value)
-      
     }
-    if (activeStep === 2) {
-      //do Email stuff
-      console.log("i did email stuff");
+    if (activeStep === 1) {
+
+      /* Green Polo state updates */
+      var GreenpoloCountSelector = document.getElementById("GreenPoloCount")
+      var GreenPoloSizeSelector = document.getElementById("GreenPoloSize")
+      setGreenPoloCount(GreenpoloCountSelector.value)
+      setGreenPoloSize(GreenPoloSizeSelector.value)
+
+      /* Black Polo state updates */
+      var BlackpoloCountSelector = document.getElementById("BlackPoloCount")
+      var BlackPoloSizeSelector = document.getElementById("BlackPoloSize")
+      setBlackPoloCount(BlackpoloCountSelector.value)
+      setBlackPoloSize(BlackPoloSizeSelector.value)
+
+      /* White Polo state updates */
+      var WhitepoloCountSelector = document.getElementById("WhitePoloCount")
+      var WhitePoloSizeSelector = document.getElementById("WhitePoloSize")
+      setWhitePoloCount(WhitepoloCountSelector.value)
+      setWhitePoloSize(WhitePoloSizeSelector.value)
+
+      /* Blue Cardigan state updates */
+      var BlueCardiganCountSelector = document.getElementById("BlueCardiganCount")
+      var BlueCardiganSizeSelector = document.getElementById("BlueCardiganSize")
+      setBlueCardiganCount(BlueCardiganCountSelector.value)
+      setBlueCardiganSize(BlueCardiganSizeSelector.value)
+
+      /* Red Cardigan state updates */
+      var RedCardiganCountSelector = document.getElementById("RedCardiganCount")
+      var RedCardiganSizeSelector = document.getElementById("RedCardiganSize")
+      setRedCardiganCount(RedCardiganCountSelector.value)
+      setRedCardiganSize(RedCardiganSizeSelector.value)
+
+      /* Green Sweatshirt state updates */
+      var GreenSweatshirtCountSelector = document.getElementById("GreenSweatshirtCount")
+      var GreenSweatshirtSizeSelector = document.getElementById("GreenSweatshirtSize")
+      setGreenSweatshirtCount(GreenSweatshirtCountSelector.value)
+      setGreenSweatshirtSize(GreenSweatshirtSizeSelector.value)
+
+      /* Black Sweatshirt state updates */
+      var BlackSweatshirtCountSelector = document.getElementById("BlackSweatshirtCount")
+      var BlackSweatshirtSizeSelector = document.getElementById("BlackSweatshirtSize")
+      setBlackSweatshirtCount(BlackSweatshirtCountSelector.value)
+      setBlackSweatshirtSize(BlackSweatshirtSizeSelector.value)
+
+      //Other text area state update
+      var OtherItemSelector = document.getElementById("OtherItem")
+      setOtherField(OtherItemSelector.value)
+
 
     }
+    if (activeStep === 2) {
+      var msg = ""
+      // Add Polos
+      if (GreenPoloCount > 0)  { msg += GreenPoloCount.toString() + " Grøn polo i str. " + GreenPoloSize + "\n" }
+      if (BlackPoloCount > 0)  { msg += BlackPoloCount.toString() + " Sort polo i str. " + BlackPoloSize + "\n" }
+      if (WhitePoloCount > 0)  { msg += WhitePoloCount.toString() + " Hvid polo i str. " + WhitePoloSize + "\n" }
+      //Add Cardigans
+      if (BlueCardiganCount > 0)  { msg += BlueCardiganCount.toString() + " Blå polo i str. " + BlueCardiganSize + "\n" }
+      if (RedCardiganCount > 0)  { msg += RedCardiganCount.toString() + " Rød polo i str. " + RedCardiganSize + "\n" }
+      //Add Sweatshirts
+      if (BlackSweatshirtCount > 0)  { msg += BlackSweatshirtCount.toString() + " Sort sweatshirt i str. " + BlackSweatshirtSize + "\n" }
+      if (GreenSweatshirtCount > 0)  { msg += GreenSweatshirtCount.toString() + " Grøn sweatshirt i str. " + GreenSweatshirtSize + "\n" }
+      //Add Other field
+      if (OtherField.length > 0) { msg += OtherField} 
+
+
+
+      console.log(msg)
+      /*
+      emailjs.send("service_pj1jvly","template_37lgn28",{
+        to_name: firstName + " " + lastName,
+        message: GreenPoloCount.toString() + " stk Grøn RB Polo i str. " + GreenPoloSize,
+        reciver_email: email,
+        });
+      */
+    }
+
     setActiveStep(activeStep + 1);
   };
 
