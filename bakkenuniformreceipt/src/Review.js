@@ -1,9 +1,6 @@
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+import Checkout from './Checkout';
 
 export default function ReviewForm() {
   return (
@@ -11,6 +8,8 @@ export default function ReviewForm() {
       <Typography variant="h6" gutterBottom>
         Tjek at det stemmer:
       </Typography>
+
+     
       
       <Typography variant="h4" gutterBottom>
         2 str. L Grøn RB Polo

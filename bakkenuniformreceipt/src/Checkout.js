@@ -20,6 +20,8 @@ import * as emailjs from 'emailjs-com'
 import{ init } from 'emailjs-com';
 init("user_5X1e4mj64MdMbEzNraSrN");
 
+
+
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
@@ -42,13 +44,15 @@ function getStepContent(step) {
     case 1:
       return <UniformForm />;
     case 2:
-      return <Review />;
+      return<Review />;
     default:
       throw new Error('Unknown step');
   }
 }
 
 const theme = createTheme();
+
+
 
 export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0); //Controll page number
@@ -81,10 +85,11 @@ export default function Checkout() {
 
   /* Other states */
   const [OtherField,setOtherField] = useState("");
+  
 
   const handleNext = () => {
     if (activeStep === 0) {
-      var firstnameBox = document.getElementById("firstName")
+      let firstnameBox = document.getElementById("firstName")
       var lastnameBox = document.getElementById("lastName")
       var emailBox = document.getElementById("Email")
       setFirstName(firstnameBox.value)
@@ -174,6 +179,7 @@ export default function Checkout() {
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
+
 
   return (
     <ThemeProvider theme={theme}>
