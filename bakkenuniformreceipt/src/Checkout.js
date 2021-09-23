@@ -1,5 +1,6 @@
 import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
+import { useState,useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -48,8 +49,31 @@ const theme = createTheme();
 
 export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
+  const [firstName, setFirstName] = useState("");
+  const [lastName,setLastName] = useState("");
+  const [email,setEmail] = useState("");
+
+  useEffect(() => {
+    console.log(firstName)
+    console.log(lastName)
+    console.log(email)
+  },[firstName,lastName,email])
 
   const handleNext = () => {
+    if (activeStep === 0) {
+      var firstnameBox = document.getElementById("firstName")
+      var lastnameBox = document.getElementById("lastName")
+      var emailBox = document.getElementById("Email")
+      setFirstName(firstnameBox.value)
+      setLastName(lastnameBox.value)
+      setEmail(emailBox.value)
+      
+    }
+    if (activeStep === 2) {
+      //do Email stuff
+      console.log("i did email stuff");
+
+    }
     setActiveStep(activeStep + 1);
   };
 
@@ -91,13 +115,9 @@ export default function Checkout() {
             {activeStep === steps.length ? (
               <React.Fragment>
                 <Typography variant="h5" gutterBottom>
-                  Thank you for your order.
+                  Email sent
                 </Typography>
-                <Typography variant="subtitle1">
-                  Your order number is #2001539. We have emailed your order
-                  confirmation, and will send you an update when your order has
-                  shipped.
-                </Typography>
+
               </React.Fragment>
             ) : (
               <React.Fragment>

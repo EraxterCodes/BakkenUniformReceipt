@@ -10,20 +10,20 @@ export default function UniformForm() {
   return (
     <React.Fragment>
       
-        <p class="DescCountSize">Uniform</p>
-        <div class="sizeselector">
-          <Typography variant="h8" gutterBottom align="right" class="Gridpadding">
+        <p className="DescCountSize">Uniform</p>
+        <div className="sizeselector">
+          <Typography variant="h8" gutterBottom align="right" className="Gridpadding">
           Grøn RB Polo 
         </Typography>
         <div>  
-          <select class="Antal">
+          <select className="Antal">
           <option selected disabled>Antal</option>
                 <option value="0">0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
               </select>
-              <select class="Antal">
+              <select className="Antal">
               <option selected disabled>str.</option>
                 <option value="S">S</option>
                 <option value="M">M</option>
