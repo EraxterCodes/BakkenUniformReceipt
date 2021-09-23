@@ -41,7 +41,7 @@ export default function EmailForm() {
             name="email "
             label="Email"
             fullWidth
-            autoComplete="shipping country"
+            autoComplete="email"
             variant="standard"
           />
         </Grid>

@@ -10,29 +10,33 @@ export default function UniformForm() {
   return (
     <React.Fragment>
       
-      <p class="DescCountSize">Uniform</p>
-        <Typography variant="h8" gutterBottom align="right" class="Gridpadding">
-        Grøn RB Polo 
-      </Typography>  
-        <select class="Antal">
-        <option selected disabled>Antal</option>
-              <option value="">0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-            </select>
-            <select class="Size">
-            <option selected disabled>str.</option>
-              <option value="">S</option>
-              <option value="1">M</option>
-              <option value="2">L</option>
-              <option value="3">XL</option>
-              <option value="3">XXL</option>
-              <option value="3">XXXL</option>
-              <option value="3">XXXXL</option>
+        <p class="DescCountSize">Uniform</p>
+        <div class="sizeselector">
+          <Typography variant="h8" gutterBottom align="right" class="Gridpadding">
+          Grøn RB Polo 
+        </Typography>
+        <div>  
+          <select class="Antal">
+          <option selected disabled>Antal</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+              <select class="Antal">
+              <option selected disabled>str.</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="XXL">XXL</option>
+                <option value="3XL">3XL</option>
+                <option value="4XL">4XL</option>
 
 
-            </select>
+              </select>
+              </div>
+        </div>
     </React.Fragment>
   );
 }

@@ -13,6 +13,11 @@
   }
 }
 
+.sizeselector{
+  display: flex;
+  justify-content: space-between;
+}
+
 .DescCountSize{
   color: black;
   font-size: calc(10px + 2vmin);
@@ -40,7 +45,8 @@
 .Antal{
   align-self: center;
   color: rgb(0, 0, 0);
-  width: 55px;
+  width: 70px;
+  padding: 0.5rem;
   margin-right: 5px;
 }
 
