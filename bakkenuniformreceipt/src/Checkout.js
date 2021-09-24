@@ -37,14 +37,21 @@ function Copyright() {
 
 const steps = ['Email', 'Tøj', 'Gennemse'];
 
-function getStepContent(step) {
+function getStepContent(step,GreenPoloCount,GreenPoloSize,BlackPoloCount,BlackPoloSize,WhitePoloCount,WhitePoloSize,BlueCardiganCount,
+                        BlueCardiganSize,RedCardiganCount,RedCardiganSize,BlackSweatshirtCount,BlackSweatshirtSize,
+                        GreenSweatshirtCount,GreenSweatshirtSize,OtherField) {
   switch (step) {
     case 0:
       return <EmailForm />;
     case 1:
       return <UniformForm />;
     case 2:
-      return<Review />;
+      return<Review 
+      GreenPoloCount={GreenPoloCount} GreenPoloSize={GreenPoloSize} BlackPoloCount={BlackPoloCount} BlackPoloSize={BlackPoloSize}
+      WhitePoloCount={WhitePoloCount} WhitePoloSize={WhitePoloSize} BlueCardiganCount={BlueCardiganCount} BlueCardiganSize={BlueCardiganSize}
+      RedCardiganCount={RedCardiganCount} RedCardiganSize={RedCardiganSize}BlackSweatshirtCount={BlackSweatshirtCount}
+      BlackSweatshirtSize={BlackSweatshirtSize} GreenSweatshirtCount={GreenSweatshirtCount}
+      GreenSweatshirtSize={GreenSweatshirtSize} OtherField={OtherField}/>;
     default:
       throw new Error('Unknown step');
   }
@@ -54,38 +61,37 @@ const theme = createTheme();
 
 
 
-export default function Checkout() {
+export default function Checkout(props) {
   const [activeStep, setActiveStep] = React.useState(0); //Controll page number
-
-  /* Email states */
-  const [firstName, setFirstName] = useState("");
-  const [lastName,setLastName] = useState("");
-  const [email,setEmail] = useState("");
   
-  /* Polo states */
-  const [GreenPoloCount,setGreenPoloCount] = useState(0);
-  const [GreenPoloSize,setGreenPoloSize] = useState("");
-  const [BlackPoloCount,setBlackPoloCount] = useState(0);
-  const [BlackPoloSize,setBlackPoloSize] = useState("");
-  const [WhitePoloCount,setWhitePoloCount] = useState(0);
-  const [WhitePoloSize,setWhitePoloSize] = useState("");
-
-
-  /* Cardigan states */
-  const [RedCardiganCount,setRedCardiganCount] = useState(0);
-  const [RedCardiganSize,setRedCardiganSize] = useState("");
-  const [BlueCardiganCount,setBlueCardiganCount] = useState(0);
-  const [BlueCardiganSize,setBlueCardiganSize] = useState("");
-
-  /* Sweatshirt states */
-  const [BlackSweatshirtCount,setBlackSweatshirtCount] = useState(0);
-  const [BlackSweatshirtSize,setBlackSweatshirtSize] = useState("");
-  const [GreenSweatshirtCount,setGreenSweatshirtCount] = useState(0);
-  const [GreenSweatshirtSize,setGreenSweatshirtSize] = useState("");
-
-  /* Other states */
-  const [OtherField,setOtherField] = useState("");
   
+    /* Email states */
+    const [firstName, setFirstName] = useState("");
+    const [lastName,setLastName] = useState("");
+    const [email,setEmail] = useState("");
+    
+    /* Polo states */
+    const [GreenPoloCount,setGreenPoloCount] = useState(0);
+    const [GreenPoloSize,setGreenPoloSize] = useState("");
+    const [BlackPoloCount,setBlackPoloCount] = useState(0);
+    const [BlackPoloSize,setBlackPoloSize] = useState("");
+    const [WhitePoloCount,setWhitePoloCount] = useState(0);
+    const [WhitePoloSize,setWhitePoloSize] = useState("");
+  
+    /* Cardigan states */
+    const [RedCardiganCount,setRedCardiganCount] = useState(0);
+    const [RedCardiganSize,setRedCardiganSize] = useState("");
+    const [BlueCardiganCount,setBlueCardiganCount] = useState(0);
+    const [BlueCardiganSize,setBlueCardiganSize] = useState("");
+  
+    /* Sweatshirt states */
+    const [BlackSweatshirtCount,setBlackSweatshirtCount] = useState(0);
+    const [BlackSweatshirtSize,setBlackSweatshirtSize] = useState("");
+    const [GreenSweatshirtCount,setGreenSweatshirtCount] = useState(0);
+    const [GreenSweatshirtSize,setGreenSweatshirtSize] = useState("");
+  
+    /* Other states */
+    const [OtherField,setOtherField] = useState("");
 
   const handleNext = () => {
     if (activeStep === 0) {
@@ -150,27 +156,23 @@ export default function Checkout() {
       var msg = ""
       // Add Polos
       if (GreenPoloCount > 0)  { msg += GreenPoloCount.toString() + " Grøn polo i str. " + GreenPoloSize + "\n" }
-      if (BlackPoloCount > 0)  { msg += BlackPoloCount.toString() + " Sort polo i str. " + BlackPoloSize + "\n" }
       if (WhitePoloCount > 0)  { msg += WhitePoloCount.toString() + " Hvid polo i str. " + WhitePoloSize + "\n" }
+      if (BlackPoloCount > 0)  { msg += BlackPoloCount.toString() + " Sort polo i str. " + BlackPoloSize + "\n" }
       //Add Cardigans
-      if (BlueCardiganCount > 0)  { msg += BlueCardiganCount.toString() + " Blå polo i str. " + BlueCardiganSize + "\n" }
       if (RedCardiganCount > 0)  { msg += RedCardiganCount.toString() + " Rød polo i str. " + RedCardiganSize + "\n" }
+      if (BlueCardiganCount > 0)  { msg += BlueCardiganCount.toString() + " Blå polo i str. " + BlueCardiganSize + "\n" }
       //Add Sweatshirts
       if (BlackSweatshirtCount > 0)  { msg += BlackSweatshirtCount.toString() + " Sort sweatshirt i str. " + BlackSweatshirtSize + "\n" }
       if (GreenSweatshirtCount > 0)  { msg += GreenSweatshirtCount.toString() + " Grøn sweatshirt i str. " + GreenSweatshirtSize + "\n" }
       //Add Other field
       if (OtherField.length > 0) { msg += OtherField} 
-
-
-
-      console.log(msg)
-      /*
+      
       emailjs.send("service_pj1jvly","template_37lgn28",{
         to_name: firstName + " " + lastName,
-        message: GreenPoloCount.toString() + " stk Grøn RB Polo i str. " + GreenPoloSize,
+        message: msg,
         reciver_email: email,
         });
-      */
+      
     }
 
     setActiveStep(activeStep + 1);
@@ -221,7 +223,9 @@ export default function Checkout() {
               </React.Fragment>
             ) : (
               <React.Fragment>
-                {getStepContent(activeStep)}
+                {getStepContent(activeStep,GreenPoloCount,GreenPoloSize,BlackPoloCount,BlackPoloSize,WhitePoloCount,WhitePoloSize,BlueCardiganCount,
+                        BlueCardiganSize,RedCardiganCount,RedCardiganSize,BlackSweatshirtCount,BlackSweatshirtSize,
+                        GreenSweatshirtCount,GreenSweatshirtSize,OtherField)}
                 <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                   {activeStep !== 0 && (
                     <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
