@@ -166,12 +166,16 @@ export default function Checkout(props) {
       if (GreenSweatshirtCount > 0)  { msg += GreenSweatshirtCount.toString() + " Grøn sweatshirt i str. " + GreenSweatshirtSize + "\n" }
       //Add Other field
       if (OtherField.length > 0) { msg += OtherField} 
+
+      //var emsg = '<p style="white-space: pre-wrap;"><\"{msg}"\</p>'
+      //console.log(emsg)
       
       emailjs.send("service_pj1jvly","template_37lgn28",{
         to_name: firstName + " " + lastName,
         message: msg,
         reciver_email: email,
         });
+      
       
     }
 
