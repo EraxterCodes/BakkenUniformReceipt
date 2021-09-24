@@ -2,7 +2,7 @@ import * as React from 'react';
 import Typography from '@mui/material/Typography';
 import Checkout from './Checkout';
 
-export default function ReviewForm() {
+export default function ReviewForm(props) {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
