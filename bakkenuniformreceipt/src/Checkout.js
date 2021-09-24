@@ -167,14 +167,15 @@ export default function Checkout(props) {
       //Add Other field
       if (OtherField.length > 0) { msg += OtherField} 
 
-      //var emsg = '<p style="white-space: pre-wrap;"><\"{msg}"\</p>'
-      //console.log(emsg)
+      var emsg = `<p style="white-space: pre-wrap;">${msg}</p>`
+      console.log(emsg)
       
       emailjs.send("service_pj1jvly","template_37lgn28",{
         to_name: firstName + " " + lastName,
-        message: msg,
+        message: emsg,
         reciver_email: email,
-        });
+        }); 
+        
       
       
     }
