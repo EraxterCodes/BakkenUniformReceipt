@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/bakkenuniformreceipt/static/css/main.adab922f.chunk.css",
-    "main.js": "/bakkenuniformreceipt/static/js/main.0da59ba9.chunk.js",
-    "main.js.map": "/bakkenuniformreceipt/static/js/main.0da59ba9.chunk.js.map",
-    "runtime-main.js": "/bakkenuniformreceipt/static/js/runtime-main.9d7612f5.js",
-    "runtime-main.js.map": "/bakkenuniformreceipt/static/js/runtime-main.9d7612f5.js.map",
-    "static/js/2.9ca55b1e.chunk.js": "/bakkenuniformreceipt/static/js/2.9ca55b1e.chunk.js",
-    "static/js/2.9ca55b1e.chunk.js.map": "/bakkenuniformreceipt/static/js/2.9ca55b1e.chunk.js.map",
-    "index.html": "/bakkenuniformreceipt/index.html",
-    "static/css/main.adab922f.chunk.css.map": "/bakkenuniformreceipt/static/css/main.adab922f.chunk.css.map",
-    "static/js/2.9ca55b1e.chunk.js.LICENSE.txt": "/bakkenuniformreceipt/static/js/2.9ca55b1e.chunk.js.LICENSE.txt"
+    "main.css": "./static/css/main.adab922f.chunk.css",
+    "main.js": "./static/js/main.0da59ba9.chunk.js",
+    "main.js.map": "./static/js/main.0da59ba9.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.05447dee.js",
+    "runtime-main.js.map": "./static/js/runtime-main.05447dee.js.map",
+    "static/js/2.9ca55b1e.chunk.js": "./static/js/2.9ca55b1e.chunk.js",
+    "static/js/2.9ca55b1e.chunk.js.map": "./static/js/2.9ca55b1e.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/main.adab922f.chunk.css.map": "./static/css/main.adab922f.chunk.css.map",
+    "static/js/2.9ca55b1e.chunk.js.LICENSE.txt": "./static/js/2.9ca55b1e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.9d7612f5.js",
+    "static/js/runtime-main.05447dee.js",
     "static/js/2.9ca55b1e.chunk.js",
     "static/css/main.adab922f.chunk.css",
     "static/js/main.0da59ba9.chunk.js"
