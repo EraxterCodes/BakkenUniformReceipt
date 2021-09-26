@@ -159,8 +159,8 @@ export default function Checkout(props) {
       if (WhitePoloCount > 0)  { msg += WhitePoloCount.toString() + " Hvid polo i str. " + WhitePoloSize + "\n" }
       if (BlackPoloCount > 0)  { msg += BlackPoloCount.toString() + " Sort polo i str. " + BlackPoloSize + "\n" }
       //Add Cardigans
-      if (RedCardiganCount > 0)  { msg += RedCardiganCount.toString() + " Rød polo i str. " + RedCardiganSize + "\n" }
-      if (BlueCardiganCount > 0)  { msg += BlueCardiganCount.toString() + " Blå polo i str. " + BlueCardiganSize + "\n" }
+      if (RedCardiganCount > 0)  { msg += RedCardiganCount.toString() + " Rød cardigan i str. " + RedCardiganSize + "\n" }
+      if (BlueCardiganCount > 0)  { msg += BlueCardiganCount.toString() + " Blå cardigan i str. " + BlueCardiganSize + "\n" }
       //Add Sweatshirts
       if (BlackSweatshirtCount > 0)  { msg += BlackSweatshirtCount.toString() + " Sort sweatshirt i str. " + BlackSweatshirtSize + "\n" }
       if (GreenSweatshirtCount > 0)  { msg += GreenSweatshirtCount.toString() + " Grøn sweatshirt i str. " + GreenSweatshirtSize + "\n" }
